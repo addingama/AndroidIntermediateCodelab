@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import com.addin.androidintermediatecodelab.R
 
 class CustomViewActivity : AppCompatActivity() {
     private lateinit var myButton: MyButton
     private lateinit var myEditText: MyEditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +21,7 @@ class CustomViewActivity : AppCompatActivity() {
 
         myButton = findViewById(R.id.my_button)
         myEditText = findViewById(R.id.my_edit_text)
+
 
         setMyButtonEnable()
 
@@ -34,10 +38,23 @@ class CustomViewActivity : AppCompatActivity() {
             }
 
         })
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     private fun setMyButtonEnable() {
         val result = myEditText.text
         myButton.isEnabled = result != null && result.toString().isNotEmpty()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

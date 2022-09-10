@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.addin.androidintermediatecodelab.custom_view.CustomViewActivity
+import com.addin.androidintermediatecodelab.seat_selector.SeatSelectorActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mnCustomView: LinearLayoutCompat
+    private lateinit var mnSeatSelector: LinearLayoutCompat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +18,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mnCustomView = findViewById(R.id.mn_custom_view)
         mnCustomView.setOnClickListener(this)
+
+        mnSeatSelector = findViewById(R.id.mn_seat_selector)
+        mnSeatSelector.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -23,6 +28,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             when(v.id) {
                 R.id.mn_custom_view -> {
                     val customViewIntent = Intent(this@MainActivity, CustomViewActivity::class.java)
+                    startActivity(customViewIntent)
+                }
+                R.id.mn_seat_selector -> {
+                    val customViewIntent = Intent(this@MainActivity, SeatSelectorActivity::class.java)
                     startActivity(customViewIntent)
                 }
             }
