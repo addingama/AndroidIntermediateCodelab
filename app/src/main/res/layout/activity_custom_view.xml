@@ -6,28 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".custom_view.CustomViewActivity">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/mn_custom_view"
-        android:layout_width="match_parent"
+    <com.addin.androidintermediatecodelab.custom_view.MyEditText
+        android:id="@+id/my_edit_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_gravity="start"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_custom_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textSize="16sp"
-            android:text="Custom View"
-            app:drawableEndCompat="@drawable/ic_baseline_chevron_right_24" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    <com.addin.androidintermediatecodelab.custom_view.MyButton
+        android:id="@+id/my_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_edit_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>
